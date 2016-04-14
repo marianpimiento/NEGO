@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateDatosPersonalesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateDatosPersonalesLabel_idEmp}" for="idEmp" />
+                    <h:inputText id="idEmp" value="#{datosPersonalesController.selected.idEmp}" title="#{bundle.CreateDatosPersonalesTitle_idEmp}" required="true" requiredMessage="#{bundle.CreateDatosPersonalesRequiredMessage_idEmp}"/>
+                    <h:outputLabel value="#{bundle.CreateDatosPersonalesLabel_apellido1}" for="apellido1" />
+                    <h:inputText id="apellido1" value="#{datosPersonalesController.selected.apellido1}" title="#{bundle.CreateDatosPersonalesTitle_apellido1}" required="true" requiredMessage="#{bundle.CreateDatosPersonalesRequiredMessage_apellido1}"/>
+                    <h:outputLabel value="#{bundle.CreateDatosPersonalesLabel_apellido2}" for="apellido2" />
+                    <h:inputText id="apellido2" value="#{datosPersonalesController.selected.apellido2}" title="#{bundle.CreateDatosPersonalesTitle_apellido2}" required="true" requiredMessage="#{bundle.CreateDatosPersonalesRequiredMessage_apellido2}"/>
+                    <h:outputLabel value="#{bundle.CreateDatosPersonalesLabel_nombre1}" for="nombre1" />
+                    <h:inputText id="nombre1" value="#{datosPersonalesController.selected.nombre1}" title="#{bundle.CreateDatosPersonalesTitle_nombre1}" required="true" requiredMessage="#{bundle.CreateDatosPersonalesRequiredMessage_nombre1}"/>
+                    <h:outputLabel value="#{bundle.CreateDatosPersonalesLabel_nombre2}" for="nombre2" />
+                    <h:inputText id="nombre2" value="#{datosPersonalesController.selected.nombre2}" title="#{bundle.CreateDatosPersonalesTitle_nombre2}" required="true" requiredMessage="#{bundle.CreateDatosPersonalesRequiredMessage_nombre2}"/>
+                    <h:outputLabel value="#{bundle.CreateDatosPersonalesLabel_fechaNac}" for="fechaNac" />
+                    <h:inputText id="fechaNac" value="#{datosPersonalesController.selected.fechaNac}" title="#{bundle.CreateDatosPersonalesTitle_fechaNac}" required="true" requiredMessage="#{bundle.CreateDatosPersonalesRequiredMessage_fechaNac}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateDatosPersonalesLabel_genero}" for="genero" />
+                    <h:inputText id="genero" value="#{datosPersonalesController.selected.genero}" title="#{bundle.CreateDatosPersonalesTitle_genero}" required="true" requiredMessage="#{bundle.CreateDatosPersonalesRequiredMessage_genero}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{datosPersonalesController.create}" value="#{bundle.CreateDatosPersonalesSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{datosPersonalesController.prepareList}" value="#{bundle.CreateDatosPersonalesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateDatosPersonalesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
